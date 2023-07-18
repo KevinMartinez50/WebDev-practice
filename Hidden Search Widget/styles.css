@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@400;700&family=Share+Tech&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(90deg, #7d5fff, #7158e2);
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+/* reason why you want to use relative is to position the items inside of this Absolute */
+.search {
+  position: relative;
+  height: 50px;
+}
+
+/* by doing this we minimize the search bar first then later when it gets clicked on the DOM will expand it for use*/
+.search .input {
+  background-color: #fff;
+  border: 0;
+  font-size: 18px;
+  padding: 15px;
+  height: 50px;
+  width: 50px;
+  /* the transition that will be used for*/
+  transition: width 0.3s ease;
+}
+
+/* this is effecting the Font-awesom search symbol */
+.btn {
+  background-color: #fff;
+  border: 0;
+  cursor: pointer;
+  font-size: 24px;
+  /* as stated in the .search class*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  /* when this is in use it will push over the symbol away of the search bar */
+  transition: transform 0.3s ease;
+}
+
+.btn:focus,
+.input:focus {
+  outline: none;
+}
+
+.search.active .input {
+  width: 200px;
+}
+
+.search.active .btn {
+  transform: translateX(198px);
+}
