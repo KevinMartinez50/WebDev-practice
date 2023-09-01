@@ -45,24 +45,32 @@ function highlightCups(idx) {
   updateBigCup();
 }
 
+// so what we want updateBigCup to do is for everytime we click on one of the small cups the big one gets filled
 function updateBigCup() {
+  // lets get our variables that we need
   const fullCups = document.querySelectorAll(".cup-full.full").length;
 
   const totalCups = smallCups.length;
+
+  // and our IF statements
 
   if (fullCups === 0) {
     percentage.style.visibility = "hidden";
     percentage.style.height = 0;
   } else {
     percentage.style.visibility = "visible";
+    // so in javascript in this will use the variables that we made and divide them and then multiply by the height of the class
+    // and the percentage of it
     percentage.style.height = `${(fullCups / totalCups) * 330}px `;
     percentage.innerText = `${(fullCups / totalCups) * 100}%`;
   }
 
   if (fullCups === totalCups) {
+    // if the requirements are met we'll be using visibility as hidden and the height as 0
     remained.style.visibility = "hidden";
     remained.style.height = 0;
   } else {
+    // otherwise we show the cup and increase the liters in the cup
     remained.style.visibility = "visible";
     liters.innerText = `${2 - (250 * fullCups) / 1000}L`;
   }
